@@ -36,3 +36,8 @@ Ahora volvelmos a acceder al [link](https://licensing.intel.com/psg/s/?language=
 Luego aceptamos los terminos y continuamos con el registro, de aqui nos redirige a la pagina principal de intel donde debemos dar click en *Sing up for Evaluation or No-Cost License* para luego seleccionar *Questa*-Intel® FPGA Starter* y dar en *next* 
 ![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Recursos/Questa%2012.png)
 ![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Recursos/Questa%2013.png)
+
+aqui se desplegará un menu en el cual debemos llenar la informacion de la siguiente manera 
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Recursos/Questa%2014.png)
+
+donde una vez llenado los datos, al correo registadro llegara un documento **.dat** que contiene la licencia de Questa la cual debemos activar abriendo Quartus y siguiendo las instrucciones *tools/License* setup donde nos permitira cargar el archivo de la licencia
