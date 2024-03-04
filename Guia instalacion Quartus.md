@@ -1,3 +1,5 @@
+# GUIA DE INSTALACION DE QUARTUS
+
 Para instalar Intel Quartus para poder programar una FPGA tenemos que descargar el programa, la versión de Ubuntu la podemos conseguir del siguiente enlace:
 
 https://www.intel.com/content/www/us/en/software-kit/795187/intel-quartus-prime-lite-edition-design-software-version-23-1-for-linux.html
