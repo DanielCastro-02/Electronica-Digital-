@@ -36,7 +36,7 @@ A continuacoin se va a reducir el tamaño del disco duro que trabaja en windows 
 Se oprime click derecho encima donde dice Windows (C:)
 y se selecciona la opcion que dice "Reducir  volumen", al seleccionarlo se abre la siguiente ventana:
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Recursos/linux7.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Recursos/linux8.png?raw=true)
 
 Aqui podemos señalar el tamaño que deseamos reducir a windows para darselo a Linux.
 
