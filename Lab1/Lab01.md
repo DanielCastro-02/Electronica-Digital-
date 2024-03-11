@@ -1,3 +1,5 @@
+# Laaboratorio # 1 
+
 Para desarrollar este laboratorio se prefirio utilizar visual code con la extension de verilog y GTKwave para el desarrollo de las simulaciones.
 
 Para la simulacion correcta de cada una de las compuertas es necesario que en visual code creemos dos archivos, en el primero va ir el funcionamineto de nuestra compuerta, que se ven de la siguiente manera:
