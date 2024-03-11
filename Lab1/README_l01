@@ -3,7 +3,7 @@ Para desarrollar este laboratorio se prefirio utilizar visual code con la extens
 Para la simulacion correcta de cada una de las compuertas es necesario que en visual code creemos dos archivos, en el primero va ir el funcionamineto de nuestra compuerta, que se ven de la siguiente manera:
 
 AND:
-![[WhatsApp Image 2024-03-10 at 10.20.34 PM.jpeg]]
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/lab1/imagenes/AND.jpeg)
 NOT:
 ![[WhatsApp Image 2024-03-10 at 10.22.52 PM.jpeg]]
 OR:![[WhatsApp Image 2024-03-10 at 10.21.11 PM.jpeg]]!
