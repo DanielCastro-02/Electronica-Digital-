@@ -6,7 +6,7 @@ Para la simulacion correcta de cada una de las compuertas es necesario que en vi
 
 AND:
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/lab1/imagenes/AND.jpeg)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Lab1/imagenes/AND.jpeg)
 
 NOT:
 
