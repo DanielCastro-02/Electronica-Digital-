@@ -1,0 +1,77 @@
+$date
+	Sun Mar 10 20:43:28 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module Nortencia_tb $end
+$var wire 1 ! S1 $end
+$var wire 1 " C0 $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$var reg 1 % C $end
+$scope module uut $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % C $end
+$var wire 1 " C0 $end
+$var wire 1 ! S1 $end
+$var wire 1 & and1 $end
+$var wire 1 ' and2 $end
+$var wire 1 ( xor1 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#20
+1!
+1%
+#40
+1!
+1(
+0%
+1$
+#60
+0!
+1"
+1'
+1%
+#80
+1!
+0"
+0'
+0%
+0$
+1#
+#100
+0!
+1"
+1'
+1%
+#120
+0!
+0(
+0'
+1&
+0%
+1$
+#140
+1!
+1%
+#160
