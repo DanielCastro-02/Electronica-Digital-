@@ -5,32 +5,32 @@ Para instalar Intel Quartus para poder programar una FPGA tenemos que descargar 
 https://www.intel.com/content/www/us/en/software-kit/795187/intel-quartus-prime-lite-edition-design-software-version-23-1-for-linux.html
 
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%201.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Lab0/Recursos/Quartus%20Instalacion%201.png)
 
 
 llegaremos a esta pagina, si bajamos un poquito encontraremos un botón azul donde podemos descargar Quartus :
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%202.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Lab0/Recursos/Quartus%20Instalacion%202.png?raw=true)
 
 Nos debería quedar un archivo así:
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%203.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Lab0/Recursos/Quartus%20Instalacion%203.png?raw=true)
 
 Damos clic derecho y nos vamos a propiedades
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%204.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Lab0/Recursos/Quartus%20Instalacion%204.png?raw=true)
 
 Seleccionamos permisos, y marcamos la casilla de "permitir ejecutar el archivo como un programa"
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%205.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Lab0/Recursos/Quartus%20Instalacion%205.png?raw=true)
 
 Volvemos a dar clic derecho sobre el archivo y seleccionamos "Ejecutar como un programa"
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%204.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Lab0/Recursos/Quartus%20Instalacion%204.png?raw=true)
 
 
 Marcamos todas las casillas en la selección blanca y cliqueamos el boton de download, el programa instalara los componentes y instalara automáticamente.
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%206.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Lab0/Recursos/Quartus%20Instalacion%206.png?raw=true)
 
 Abrimos una terminal ( Un atajo rapido es CTRL + ALT + T ) y escribimos el siguiente comando
 
@@ -40,7 +40,7 @@ sudo nano .bashrc
 
 y nos debería mostrar la consola de esta manera
 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Recursos/Quartus%20Instalacion%207.png?raw=true)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-/blob/main/Lab0/Recursos/Quartus%20Instalacion%207.png?raw=true)
 
 nos vamos a la ultima parte de la consola y comentamos la linea que dice
 
