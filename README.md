@@ -1,5 +1,5 @@
-## Electronica-Digital-1
-# Integrantes 
+# Electronica-Digital-1
+## Integrantes 
 
 Santiago Valderrama (savalderrama@unal.edu.co)
 
