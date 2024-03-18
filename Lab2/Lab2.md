@@ -8,7 +8,7 @@ La asignación de los pines se dio en ese orden ya que, para las entradas se asi
 
 ![alt taxt](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Lab2/imagenes/WhatsApp%20Image%202024-03-17%20at%209.38.44%20PM.jpeg)
 
-Como se puede ver la fpga recibió todo la informacion con exito y ya se puede interactuar de manera activa en la fpga (Con el video adjuntado en la carpeta se puede ver como actua).
+Como se puede ver la fpga recibió todo la informacion con exito y ya se puede interactuar de manera activa en la fpga (https://youtu.be/phVZOsEvMsc).
 
 Ahora para el sumador de 4 bits se utilizo el sumador de 1 bit pero 4 veces, esto quiere decir que ahora tenemos 4 veces mas entradas, por lo tanto toca asignar a cada entrada un interruptor, para las salidas solo hay 4 ya que es una por sumador entonces a cada uno se le asignara un led.
 
