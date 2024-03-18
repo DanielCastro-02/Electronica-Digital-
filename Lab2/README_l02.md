@@ -1,4 +1,4 @@
-# Laboratorio 2 - Sumador de 4 bits
+# Laboratorio 2 - Sumador de 1 y 4 bits
 
 Para este laboratorio se utilizo el sumador de 1 bit del laboratorio #1 con el objetivo de poder representarlo de manera activa en la fpga, para esto, fue necesario asignarle a cada entrada y a cada salida un pin de la fpga.
 
