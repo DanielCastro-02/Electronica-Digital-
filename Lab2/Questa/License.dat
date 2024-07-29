@@ -1,0 +1,27 @@
+﻿# Intel Corporation Software and/or Intellectual Property License File
+# Issued 01 March 2024
+# Upgrade to these products will no longer be available after the Maintenance Expiration  
+# date unless licenses are renewed.  
+# Fixed Node License
+# Primary Machine Name-Viatore-PC
+# Primary Machine ID-NIC ID 401A58A24C0B
+# Companion ID-N/A
+# Companion ID 2-N/A
+# Product License Summary:
+# 2 Questa*-Intel® FPGA Starter Edition (License: SW-QUESTA), 1 Seat(s)
+# - Maintenance Expiration of 2025.03
+# - License Expires 01-Mar-2025
+################################################################################ 
+# FEATURE START 
+# This is license file for Questasim*-Intel FPGA Starter Edition 
+# Number of seat licenses is 1 
+# License Expires 01-Mar-2025 
+DAEMON mgcld path_to_mgcld
+INCREMENT intelqsimstarter mgcld 2025.03 01-mar-2025 uncounted \
+    2F18B4A1DC3A869288F1 VENDOR_STRING=9173CD3B HOSTID=401a58a24c0b \
+    ISSUER=Intel SN=291067052 SIGN2="0123 C6D5 99ED D59E A710 F5D2 57F0 \
+    BADE 1A81 9541 5CA6 15FE CF18 A219 6160 018A 9002 0784 D4CD E01D 205A \
+    8960 205E 6384 1487 A375 C846 AA77 0E9F FFA6"
+# FEATURE END 
+################################################################################
+# End of Intel Corporation Software and/or Intellectual Property License File. Issued 03/01/2024
