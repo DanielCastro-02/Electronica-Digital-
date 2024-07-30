@@ -1,5 +1,5 @@
 Flow report for Segmentos
-Mon Jul 29 14:04:04 2024
+Mon Jul 29 21:28:25 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Mon Jul 29 14:04:04 2024          ;
+; Flow Status                        ; Successful - Mon Jul 29 21:28:25 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; Segmentos                                      ;
 ; Top-level Entity Name              ; Segmentos                                      ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE10E22C8                                   ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 12 / 10,320 ( < 1 % )                          ;
-;     Total combinational functions  ; 12 / 10,320 ( < 1 % )                          ;
+; Total logic elements               ; 56 / 10,320 ( < 1 % )                          ;
+;     Total combinational functions  ; 56 / 10,320 ( < 1 % )                          ;
 ;     Dedicated logic registers      ; 0 / 10,320 ( 0 % )                             ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 18 / 92 ( 20 % )                               ;
+; Total pins                         ; 19 / 92 ( 21 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 423,936 ( 0 % )                            ;
 ; Embedded Multiplier 9-bit elements ; 0 / 46 ( 0 % )                                 ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/29/2024 14:03:47 ;
+; Start date & time ; 07/29/2024 21:28:12 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Segmentos           ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 62489538785877.172227982709234         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 35716178979798.172230649201960         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -99,26 +99,26 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 400 MB              ; 00:00:18                           ;
-; Fitter               ; 00:00:03     ; 1.0                     ; 1553 MB             ; 00:00:04                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 346 MB              ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 552 MB              ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 587 MB              ; 00:00:00                           ;
-; Total                ; 00:00:13     ; --                      ; --                  ; 00:00:24                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4773 MB             ; 00:00:13                           ;
+; Fitter               ; 00:00:02     ; 1.0                     ; 6095 MB             ; 00:00:03                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4683 MB             ; 00:00:00                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 4829 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4629 MB             ; 00:00:00                           ;
+; Total                ; 00:00:10     ; --                      ; --                  ; 00:00:17                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                                       ;
-+----------------------+---------------------------------+----------------+------------+----------------+
-; Module Name          ; Machine Hostname                ; OS Name        ; OS Version ; Processor type ;
-+----------------------+---------------------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; daniel-IdeaPad-Gaming-3-15ARH05 ; Ubuntu 22.04.4 ; 22         ; x86_64         ;
-; Fitter               ; daniel-IdeaPad-Gaming-3-15ARH05 ; Ubuntu 22.04.4 ; 22         ; x86_64         ;
-; Assembler            ; daniel-IdeaPad-Gaming-3-15ARH05 ; Ubuntu 22.04.4 ; 22         ; x86_64         ;
-; Timing Analyzer      ; daniel-IdeaPad-Gaming-3-15ARH05 ; Ubuntu 22.04.4 ; 22         ; x86_64         ;
-; EDA Netlist Writer   ; daniel-IdeaPad-Gaming-3-15ARH05 ; Ubuntu 22.04.4 ; 22         ; x86_64         ;
-+----------------------+---------------------------------+----------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-HOFG36V  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-HOFG36V  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-HOFG36V  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-HOFG36V  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HOFG36V  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------

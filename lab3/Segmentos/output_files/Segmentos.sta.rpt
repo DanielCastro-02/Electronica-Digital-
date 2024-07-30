@@ -1,5 +1,5 @@
 Timing Analyzer report for Segmentos
-Mon Jul 29 14:04:03 2024
+Mon Jul 29 21:28:24 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -268,6 +268,7 @@ No synchronizer chains to report.
 +-------------------------+--------------+-----------------+-----------------+
 ; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +-------------------------+--------------+-----------------+-----------------+
+; MHZ                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; Ci                      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; A[0]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; B[0]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -440,7 +441,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Jul 29 14:04:02 2024
+    Info: Processing started: Mon Jul 29 21:28:23 2024
 Info: Command: quartus_sta Segmentos -c Segmentos
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -450,9 +451,176 @@ Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Segmentos.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332125): Found combinational loop of 2 nodes File: /home/daniel/Segmentos/Segmentos.v Line: 20
-    Warning (332126): Node "an[0]~1|datad"
-    Warning (332126): Node "an[0]~1|combout"
+Warning (332125): Found combinational loop of 2 nodes File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 6
+    Warning (332126): Node "clock~0|combout"
+    Warning (332126): Node "clock~0|datad"
+Warning (332125): Found combinational loop of 165 nodes File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 31
+    Warning (332126): Node "Add0~0|datab"
+    Warning (332126): Node "Add0~0|cout"
+    Warning (332126): Node "Add0~2|cin"
+    Warning (332126): Node "Add0~2|combout"
+    Warning (332126): Node "Add0~2|dataa"
+    Warning (332126): Node "Add0~2|cout"
+    Warning (332126): Node "Add0~4|cin"
+    Warning (332126): Node "Add0~4|combout"
+    Warning (332126): Node "Add0~4|dataa"
+    Warning (332126): Node "Add0~4|cout"
+    Warning (332126): Node "Add0~6|cin"
+    Warning (332126): Node "Add0~6|combout"
+    Warning (332126): Node "Add0~6|datab"
+    Warning (332126): Node "Add0~6|cout"
+    Warning (332126): Node "Add0~8|cin"
+    Warning (332126): Node "Add0~8|combout"
+    Warning (332126): Node "Add0~8|datab"
+    Warning (332126): Node "Add0~8|cout"
+    Warning (332126): Node "Add0~10|cin"
+    Warning (332126): Node "Add0~10|combout"
+    Warning (332126): Node "Add0~10|datab"
+    Warning (332126): Node "Add0~10|cout"
+    Warning (332126): Node "Add0~12|cin"
+    Warning (332126): Node "Add0~12|combout"
+    Warning (332126): Node "LessThan0~5|datad"
+    Warning (332126): Node "LessThan0~5|combout"
+    Warning (332126): Node "LessThan0~6|datac"
+    Warning (332126): Node "LessThan0~6|combout"
+    Warning (332126): Node "LessThan0~7|datac"
+    Warning (332126): Node "LessThan0~7|combout"
+    Warning (332126): Node "counter[25]~28|datab"
+    Warning (332126): Node "counter[25]~28|combout"
+    Warning (332126): Node "Add0~48|dataa"
+    Warning (332126): Node "Add0~48|combout"
+    Warning (332126): Node "counter[25]~28|datad"
+    Warning (332126): Node "LessThan0~7|dataa"
+    Warning (332126): Node "Add0~46|datab"
+    Warning (332126): Node "Add0~46|cout"
+    Warning (332126): Node "Add0~48|cin"
+    Warning (332126): Node "Add0~46|combout"
+    Warning (332126): Node "Add0~46|dataa"
+    Warning (332126): Node "LessThan0~7|datab"
+    Warning (332126): Node "Add0~44|datab"
+    Warning (332126): Node "Add0~44|cout"
+    Warning (332126): Node "Add0~46|cin"
+    Warning (332126): Node "Add0~44|combout"
+    Warning (332126): Node "Add0~44|dataa"
+    Warning (332126): Node "LessThan0~1|datab"
+    Warning (332126): Node "LessThan0~1|combout"
+    Warning (332126): Node "LessThan0~2|datac"
+    Warning (332126): Node "LessThan0~2|combout"
+    Warning (332126): Node "LessThan0~6|datab"
+    Warning (332126): Node "Add0~42|datab"
+    Warning (332126): Node "Add0~42|cout"
+    Warning (332126): Node "Add0~44|cin"
+    Warning (332126): Node "Add0~42|combout"
+    Warning (332126): Node "Add0~42|dataa"
+    Warning (332126): Node "LessThan0~1|datad"
+    Warning (332126): Node "Add0~40|dataa"
+    Warning (332126): Node "Add0~40|cout"
+    Warning (332126): Node "Add0~42|cin"
+    Warning (332126): Node "Add0~40|combout"
+    Warning (332126): Node "Add0~40|datab"
+    Warning (332126): Node "LessThan0~2|datad"
+    Warning (332126): Node "Add0~38|dataa"
+    Warning (332126): Node "Add0~38|cout"
+    Warning (332126): Node "Add0~40|cin"
+    Warning (332126): Node "Add0~38|combout"
+    Warning (332126): Node "LessThan0~2|datab"
+    Warning (332126): Node "Add0~38|datab"
+    Warning (332126): Node "Add0~36|dataa"
+    Warning (332126): Node "Add0~36|cout"
+    Warning (332126): Node "Add0~38|cin"
+    Warning (332126): Node "Add0~36|combout"
+    Warning (332126): Node "LessThan0~2|dataa"
+    Warning (332126): Node "Add0~36|datab"
+    Warning (332126): Node "Add0~34|dataa"
+    Warning (332126): Node "Add0~34|cout"
+    Warning (332126): Node "Add0~36|cin"
+    Warning (332126): Node "Add0~34|combout"
+    Warning (332126): Node "LessThan0~1|dataa"
+    Warning (332126): Node "Add0~34|datab"
+    Warning (332126): Node "LessThan0~6|datad"
+    Warning (332126): Node "Add0~32|dataa"
+    Warning (332126): Node "Add0~32|cout"
+    Warning (332126): Node "Add0~34|cin"
+    Warning (332126): Node "Add0~32|combout"
+    Warning (332126): Node "LessThan0~1|datac"
+    Warning (332126): Node "Add0~32|datab"
+    Warning (332126): Node "Add0~30|datab"
+    Warning (332126): Node "Add0~30|combout"
+    Warning (332126): Node "LessThan0~6|dataa"
+    Warning (332126): Node "Add0~30|dataa"
+    Warning (332126): Node "Add0~30|cout"
+    Warning (332126): Node "Add0~32|cin"
+    Warning (332126): Node "Add0~28|datab"
+    Warning (332126): Node "Add0~28|combout"
+    Warning (332126): Node "LessThan0~3|datab"
+    Warning (332126): Node "LessThan0~3|combout"
+    Warning (332126): Node "LessThan0~5|datac"
+    Warning (332126): Node "Add0~28|dataa"
+    Warning (332126): Node "Add0~28|cout"
+    Warning (332126): Node "Add0~30|cin"
+    Warning (332126): Node "Add0~26|dataa"
+    Warning (332126): Node "Add0~26|cout"
+    Warning (332126): Node "Add0~28|cin"
+    Warning (332126): Node "Add0~26|combout"
+    Warning (332126): Node "LessThan0~3|datac"
+    Warning (332126): Node "Add0~26|datab"
+    Warning (332126): Node "Add0~24|datab"
+    Warning (332126): Node "Add0~24|combout"
+    Warning (332126): Node "LessThan0~3|datad"
+    Warning (332126): Node "Add0~24|dataa"
+    Warning (332126): Node "Add0~24|cout"
+    Warning (332126): Node "Add0~26|cin"
+    Warning (332126): Node "Add0~22|datab"
+    Warning (332126): Node "Add0~22|combout"
+    Warning (332126): Node "LessThan0~3|dataa"
+    Warning (332126): Node "Add0~22|dataa"
+    Warning (332126): Node "Add0~22|cout"
+    Warning (332126): Node "Add0~24|cin"
+    Warning (332126): Node "Add0~20|dataa"
+    Warning (332126): Node "Add0~20|cout"
+    Warning (332126): Node "Add0~22|cin"
+    Warning (332126): Node "Add0~20|combout"
+    Warning (332126): Node "LessThan0~4|datab"
+    Warning (332126): Node "LessThan0~4|combout"
+    Warning (332126): Node "LessThan0~5|datab"
+    Warning (332126): Node "Add0~20|datab"
+    Warning (332126): Node "Add0~18|datab"
+    Warning (332126): Node "Add0~18|combout"
+    Warning (332126): Node "LessThan0~4|dataa"
+    Warning (332126): Node "Add0~18|dataa"
+    Warning (332126): Node "Add0~18|cout"
+    Warning (332126): Node "Add0~20|cin"
+    Warning (332126): Node "Add0~16|dataa"
+    Warning (332126): Node "Add0~16|cout"
+    Warning (332126): Node "Add0~18|cin"
+    Warning (332126): Node "Add0~16|combout"
+    Warning (332126): Node "LessThan0~4|datad"
+    Warning (332126): Node "Add0~16|datab"
+    Warning (332126): Node "Add0~14|datab"
+    Warning (332126): Node "Add0~14|combout"
+    Warning (332126): Node "LessThan0~4|datac"
+    Warning (332126): Node "Add0~14|dataa"
+    Warning (332126): Node "Add0~14|cout"
+    Warning (332126): Node "Add0~16|cin"
+    Warning (332126): Node "Add0~12|dataa"
+    Warning (332126): Node "Add0~12|cout"
+    Warning (332126): Node "Add0~14|cin"
+    Warning (332126): Node "Add0~10|dataa"
+    Warning (332126): Node "Add0~8|dataa"
+    Warning (332126): Node "Add0~6|dataa"
+    Warning (332126): Node "Add0~4|datab"
+    Warning (332126): Node "Add0~2|datab"
+    Warning (332126): Node "counter[1]~26|datad"
+    Warning (332126): Node "counter[1]~26|combout"
+    Warning (332126): Node "Add0~0|dataa"
+    Warning (332126): Node "Add0~0|combout"
+    Warning (332126): Node "counter[1]~26|datac"
+    Warning (332126): Node "LessThan0~7|datad"
+    Warning (332126): Node "counter[0]~27|datad"
+    Warning (332126): Node "counter[0]~27|combout"
+    Warning (332126): Node "counter[0]~27|datab"
+    Warning (332126): Node "Add0~12|datab"
+Critical Warning (332081): Design contains combinational loop of 165 nodes. Estimating the delays through the loop.
 Warning (332068): No clocks defined in design.
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
@@ -490,9 +658,9 @@ Info (332140): No Removal paths to report
 Info (332140): No Minimum Pulse Width paths to report
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 552 megabytes
-    Info: Processing ended: Mon Jul 29 14:04:03 2024
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 175 warnings
+    Info: Peak virtual memory: 4829 megabytes
+    Info: Processing ended: Mon Jul 29 21:28:24 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

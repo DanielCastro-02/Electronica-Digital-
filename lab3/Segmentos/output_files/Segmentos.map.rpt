@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Segmentos
-Mon Jul 29 14:03:55 2024
+Mon Jul 29 21:28:17 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -13,12 +13,14 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Logic Cells Representing Combinational Loops
-  9. General Register Statistics
- 10. Port Connectivity Checks: "Sumador:sum0"
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. Logic Cells Representing Combinational Loops
+ 10. General Register Statistics
+ 11. Port Connectivity Checks: "Sumador:sum0"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,16 +47,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jul 29 14:03:55 2024          ;
+; Analysis & Synthesis Status        ; Successful - Mon Jul 29 21:28:17 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; Segmentos                                      ;
 ; Top-level Entity Name              ; Segmentos                                      ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 13                                             ;
-;     Total combinational functions  ; 13                                             ;
+; Total logic elements               ; 56                                             ;
+;     Total combinational functions  ; 56                                             ;
 ;     Dedicated logic registers      ; 0                                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 18                                             ;
+; Total pins                         ; 19                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -164,46 +166,46 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                     ;
-+----------------------------------+-----------------+------------------------+------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path       ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------+---------+
-; Segmentos.v                      ; yes             ; User Verilog HDL File  ; /home/daniel/Segmentos/Segmentos.v ;         ;
-; Sumador.v                        ; yes             ; User Verilog HDL File  ; /home/daniel/Segmentos/Sumador.v   ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
+; Segmentos.v                      ; yes             ; User Verilog HDL File  ; C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v ;         ;
+; Sumador.v                        ; yes             ; User Verilog HDL File  ; C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Sumador.v   ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                       ;
-+---------------------------------------------+---------------------+
-; Resource                                    ; Usage               ;
-+---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 13                  ;
-;                                             ;                     ;
-; Total combinational functions               ; 13                  ;
-; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 9                   ;
-;     -- 3 input functions                    ; 2                   ;
-;     -- <=2 input functions                  ; 2                   ;
-;                                             ;                     ;
-; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 13                  ;
-;     -- arithmetic mode                      ; 0                   ;
-;                                             ;                     ;
-; Total registers                             ; 0                   ;
-;     -- Dedicated logic registers            ; 0                   ;
-;     -- I/O registers                        ; 0                   ;
-;                                             ;                     ;
-; I/O pins                                    ; 18                  ;
-;                                             ;                     ;
-; Embedded Multiplier 9-bit elements          ; 0                   ;
-;                                             ;                     ;
-; Maximum fan-out node                        ; Sumador:sum0|xor1~0 ;
-; Maximum fan-out                             ; 7                   ;
-; Total fan-out                               ; 72                  ;
-; Average fan-out                             ; 1.47                ;
-+---------------------------------------------+---------------------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 56          ;
+;                                             ;             ;
+; Total combinational functions               ; 56          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 16          ;
+;     -- 3 input functions                    ; 31          ;
+;     -- <=2 input functions                  ; 9           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 32          ;
+;     -- arithmetic mode                      ; 24          ;
+;                                             ;             ;
+; Total registers                             ; 0           ;
+;     -- Dedicated logic registers            ; 0           ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 19          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; LessThan0~7 ;
+; Maximum fan-out                             ; 28          ;
+; Total fan-out                               ; 202         ;
+; Average fan-out                             ; 2.15        ;
++---------------------------------------------+-------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -211,7 +213,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name     ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------+-------------+--------------+
-; |Segmentos                 ; 13 (8)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |Segmentos              ; Segmentos   ; work         ;
+; |Segmentos                 ; 56 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |Segmentos              ; Segmentos   ; work         ;
 ;    |Sumador:sum0|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Segmentos|Sumador:sum0 ; Sumador     ; work         ;
 ;    |Sumador:sum1|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Segmentos|Sumador:sum1 ; Sumador     ; work         ;
 ;    |Sumador:sum2|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Segmentos|Sumador:sum2 ; Sumador     ; work         ;
@@ -219,14 +221,51 @@ https://fpgasoftware.intel.com/eula.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops               ;
-+--------------------------------------------------------+---+
-; Logic Cell Name                                        ;   ;
-+--------------------------------------------------------+---+
-; an[0]~0                                                ;   ;
-; Number of logic cells representing combinational loops ; 1 ;
-+--------------------------------------------------------+---+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; clock                                              ; counter[25]         ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                ;
++--------------------------------------------------------+----+
+; Logic Cell Name                                        ;    ;
++--------------------------------------------------------+----+
+; counter[25]~0                                          ;    ;
+; LessThan0~0                                            ;    ;
+; counter[24]~1                                          ;    ;
+; counter[23]~2                                          ;    ;
+; counter[22]~3                                          ;    ;
+; counter[21]~4                                          ;    ;
+; counter[20]~5                                          ;    ;
+; counter[19]~6                                          ;    ;
+; counter[18]~7                                          ;    ;
+; counter[17]~8                                          ;    ;
+; counter[16]~9                                          ;    ;
+; counter[15]~10                                         ;    ;
+; counter[14]~11                                         ;    ;
+; counter[13]~12                                         ;    ;
+; counter[12]~13                                         ;    ;
+; counter[11]~14                                         ;    ;
+; counter[10]~15                                         ;    ;
+; counter[9]~16                                          ;    ;
+; counter[8]~17                                          ;    ;
+; counter[7]~18                                          ;    ;
+; counter[6]~19                                          ;    ;
+; counter[5]~20                                          ;    ;
+; counter[4]~21                                          ;    ;
+; counter[3]~22                                          ;    ;
+; counter[2]~23                                          ;    ;
+; counter[1]~24                                          ;    ;
+; counter[0]~25                                          ;    ;
+; Number of logic cells representing combinational loops ; 27 ;
++--------------------------------------------------------+----+
 Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -259,17 +298,19 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 18                          ;
-; cycloneiii_lcell_comb ; 16                          ;
-;     normal            ; 16                          ;
+; boundary_port         ; 19                          ;
+; cycloneiii_lcell_comb ; 58                          ;
+;     arith             ; 24                          ;
+;         3 data inputs ; 24                          ;
+;     normal            ; 34                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 9                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 3.00                        ;
+; Max LUT depth         ; 4.40                        ;
+; Average LUT depth     ; 3.44                        ;
 +-----------------------+-----------------------------+
 
 
@@ -288,37 +329,50 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Jul 29 14:03:47 2024
+    Info: Processing started: Mon Jul 29 21:28:12 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Segmentos -c Segmentos
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file Segmentos.v
-    Info (12023): Found entity 1: Segmentos File: /home/daniel/Segmentos/Segmentos.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sumador.v
-    Info (12023): Found entity 1: Sumador File: /home/daniel/Segmentos/Sumador.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file Sumador4Segmentos.v
-    Info (12023): Found entity 1: Sumador4Segmentos File: /home/daniel/Segmentos/Sumador4Segmentos.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at Sumador.v(9): created implicit net for "xor1" File: /home/daniel/Segmentos/Sumador.v Line: 9
-Warning (10236): Verilog HDL Implicit Net warning at Sumador.v(10): created implicit net for "and1" File: /home/daniel/Segmentos/Sumador.v Line: 10
-Warning (10236): Verilog HDL Implicit Net warning at Sumador.v(11): created implicit net for "and2" File: /home/daniel/Segmentos/Sumador.v Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file segmentos.v
+    Info (12023): Found entity 1: Segmentos File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sumador.v
+    Info (12023): Found entity 1: Sumador File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Sumador.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sumador4segmentos.v
+    Info (12023): Found entity 1: Sumador4Segmentos File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Sumador4Segmentos.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at Sumador.v(9): created implicit net for "xor1" File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Sumador.v Line: 9
+Warning (10236): Verilog HDL Implicit Net warning at Sumador.v(10): created implicit net for "and1" File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Sumador.v Line: 10
+Warning (10236): Verilog HDL Implicit Net warning at Sumador.v(11): created implicit net for "and2" File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Sumador.v Line: 11
 Info (12127): Elaborating entity "Segmentos" for the top level hierarchy
-Info (12128): Elaborating entity "Sumador" for hierarchy "Sumador:sum0" File: /home/daniel/Segmentos/Segmentos.v Line: 14
+Warning (10230): Verilog HDL assignment warning at Segmentos.v(31): truncated value with size 32 to match size of target (26) File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 31
+Warning (10240): Verilog HDL Always Construct warning at Segmentos.v(29): inferring latch(es) for variable "clock", which holds its previous value in one or more paths through the always construct File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 29
+Warning (10235): Verilog HDL Always Construct warning at Segmentos.v(46): variable "S" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 46
+Warning (10235): Verilog HDL Always Construct warning at Segmentos.v(71): variable "S" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 71
+Info (10041): Inferred latch for "clock" at Segmentos.v(29) File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 29
+Info (12128): Elaborating entity "Sumador" for hierarchy "Sumador:sum0" File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "an[2]" is stuck at VCC File: /home/daniel/Segmentos/Segmentos.v Line: 20
-    Warning (13410): Pin "an[3]" is stuck at VCC File: /home/daniel/Segmentos/Segmentos.v Line: 20
+    Warning (13410): Pin "an[2]" is stuck at VCC File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 25
+    Warning (13410): Pin "an[3]" is stuck at VCC File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 25
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/output_files/Segmentos.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Ci" File: /home/daniel/Segmentos/Segmentos.v Line: 5
-Info (21057): Implemented 31 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 7 input pins
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "MHZ" File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 7
+    Warning (15610): No output dependent on input pin "Ci" File: C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/Segmentos.v Line: 10
+Info (21057): Implemented 75 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
     Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 13 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 400 megabytes
-    Info: Processing ended: Mon Jul 29 14:03:55 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:18
+    Info (21061): Implemented 56 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4773 megabytes
+    Info: Processing ended: Mon Jul 29 21:28:18 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:13
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/valde/Documents/GitHub/Electronica-Digital-G2-E1/lab3/Segmentos/output_files/Segmentos.map.smsg.
 
 
