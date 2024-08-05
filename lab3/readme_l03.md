@@ -43,7 +43,11 @@ Para ello, primero se realizo la parte logica, la cual consistio en con el codig
 
 Este codigo lo que hace es cogificar el numero pasado por el dip, el cual es Binario y lo transforma en codifica en BCD, esto a raiz de que para que el 7 segmentos pueda mostrar algo algun numero o letra en pantalla, se debe configurar cada uno de los 7 LEDs para que de esta formar pueda presentar la informacion que queremos. 
 
-Despues de ello, se realiza la asignacion de pines en la FPGA, teniendo en cuenta, que los pines de entrada del Dip Switch son los pines P50, P59, P60 Y P61, los cuales en nuestro codigo corresponde a la estrada BCD. 
+Despues de ello, se realiza la asignacion de pines en la FPGA la cual quedo distribuida de la siguiente manera:
+
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Lab3/Imagenes/WhatsApp%Image%2024-08-04%at%9.52.39%PM.jpeg)
+
+Teniendo en cuenta, los pines de entrada del Dip Switch son los pines P50, P59, P60 Y P61, los cuales en nuestro codigo corresponde a la estrada BCD. 
 
 La salida AN en la FPGA es aqueya que da la señal al displey 7 segmentos, el cual esta compuesto por cuatro 7 segmentos en configuracion de "Anodo comun" donde dependiendo de la posicion en la cual ponemos un 0 corresponde al 7 segmento que se activa para visualizar la informaciòn. En la FPGA de la salida AN esta encargado los pines P128, P129, P132 y P133
 
@@ -96,7 +100,7 @@ Para este ejercicio la unica modificacion realizada fue, al codigo base, no prog
 endmodule
 
 Al cargarlo en la FPGA obtuvimos el siguiente resultado: 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Lab3/Imagenes/WhatsApp%Image%2024-08-04%at%9.52.39%PM.jpeg)
+
  
 # Segunda Parte
 
