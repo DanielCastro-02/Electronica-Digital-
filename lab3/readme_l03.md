@@ -100,9 +100,7 @@ Para este ejercicio la unica modificacion realizada fue, al codigo base, no prog
 	end
 
 endmodule
-
-Al cargarlo en la FPGA obtuvimos el siguiente resultado: 
-
+ 
  
 # Segunda Parte
 
@@ -187,6 +185,10 @@ Dentro de la logica vamos a llamar un " Case() " con el que vamos a meter el res
     endmodule
 
 Este valor lo metemos directamente a SSeg que es nuestra salida en el display de 7 segmentos y con esto podemos mostrar el resultado de la suma con hexadecimales.
+
+# Video suma hexadecimal
+
+https://youtube.com/shorts/8rhXOPpK6jg?si=u8wf_bpY_eOrxoqY
 
 ## Mostrar el resultado en Decimal
 
