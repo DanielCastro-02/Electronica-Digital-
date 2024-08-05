@@ -96,7 +96,7 @@ Para este ejercicio la unica modificacion realizada fue, al codigo base, no prog
 endmodule
 
 Al cargarlo en la FPGA obtuvimos el siguiente resultado: 
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Lab3/imagenes/Pin planner 2 parte.png)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Lab3/imagenes/Pinplanner.png)
  
 # Segunda Parte
 
