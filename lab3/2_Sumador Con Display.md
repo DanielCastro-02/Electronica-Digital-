@@ -22,11 +22,11 @@ La diferencia con el codigo anterior es que ahora no tenemos Output's tenemos Wi
 
 Instanciamos los modulos necesarios para realizar las sumas
 
-Sumador sum0(.a(A[0]), .b(B[0]), .ci(1'b0), .s1(S[0]), .c0(C1));
+    Sumador sum0(.a(A[0]), .b(B[0]), .ci(1'b0), .s1(S[0]), .c0(C1));
 
-Sumador sum1(.a(A[1]), .b(B[1]), .ci(C1), .s1(S[1]), .c0(C2));
+    Sumador sum1(.a(A[1]), .b(B[1]), .ci(C1), .s1(S[1]), .c0(C2));
 
-Sumador sum2(.a(A[2]), .b(B[2]), .ci(C2), .s1(S[2]), .c0(S[3]));
+    Sumador sum2(.a(A[2]), .b(B[2]), .ci(C2), .s1(S[2]), .c0(S[3]));
 
 y ya deberiamos tener el sumador de 3 Bits, el siguiente paso seria mostrar el resultado en el display
 
@@ -56,29 +56,31 @@ end
 
 Dentro de la logica vamos a llamar un " Case() " con el que vamos a meter el resultado de la suma y lo vamos a convertir en su representacion del display de 7 segmentos:
 
-always @ ( * ) begin
-  case (S)  
-    4'b0000: SSeg = 7'b0000001; // "0"  
-    4'b0001: SSeg = 7'b1001111; // "1" 
-    4'b0010: SSeg = 7'b0010010; // "2" 
-    4'b0011: SSeg = 7'b0000110; // "3" 
-    4'b0100: SSeg = 7'b1001100; // "4" 
-    4'b0101: SSeg = 7'b0100100; // "5" 
-    4'b0110: SSeg = 7'b0100000; // "6" 
-    4'b0111: SSeg = 7'b0001111; // "7" 
-    4'b1000: SSeg = 7'b0000000; // "8"  
-    4'b1001: SSeg = 7'b0000100; // "9" 
-    4'ha: SSeg = 7'b0001000; // "A"
-    4'hb: SSeg = 7'b1100000; // "B"
-    4'hc: SSeg = 7'b0110001; // "C"
-    4'hd: SSeg = 7'b1000010; // "D"
-    4'he: SSeg = 7'b0110000; // "E"
-    4'hf: SSeg = 7'b0111000; // "F"
-    default:
-        SSeg = 0;
-    endcase
-end
-endmodule
+    always @ ( * ) begin
+    case (S)  
+        4'b0000: SSeg = 7'b0000001; // "0"  
+        4'b0001: SSeg = 7'b1001111; // "1" 
+        4'b0010: SSeg = 7'b0010010; // "2" 
+        4'b0011: SSeg = 7'b0000110; // "3" 
+        4'b0100: SSeg = 7'b1001100; // "4" 
+        4'b0101: SSeg = 7'b0100100; // "5" 
+        4'b0110: SSeg = 7'b0100000; // "6" 
+        4'b0111: SSeg = 7'b0001111; // "7" 
+        4'b1000: SSeg = 7'b0000000; // "8"  
+        4'b1001: SSeg = 7'b0000100; // "9" 
+        4'ha: SSeg = 7'b0001000; // "A"
+        4'hb: SSeg = 7'b1100000; // "B"
+        4'hc: SSeg = 7'b0110001; // "C"
+        4'hd: SSeg = 7'b1000010; // "D"
+        4'he: SSeg = 7'b0110000; // "E"
+        4'hf: SSeg = 7'b0111000; // "F"
+        default:
+            SSeg = 0;
+        endcase
+    end
+    endmodule
 
 Este valor lo metemos directamente a SSeg que es nuestra salida en el display de 7 segmentos y con esto podemos mostrar el resultado de la suma con hexadecimales.
+
+### Mostrar el resultado en Decimal (Dos displays con diferentes digitos)
 
