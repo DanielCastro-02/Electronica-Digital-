@@ -10,12 +10,12 @@ Para la realizacion de esta parte podemos usar el codigo de la primera parte y f
 
 Lo primero que vamos a hacer es que las salidas del sumador no se comporten como salidas ( 5V en algun pin de la placa ) si no como una variable que vamos a procesar para realizar la salida en el display.
 
-  input [2:0]A;
-  input [2:0]B;
-  input Ci;
-  
-  wire [3:0] S;
-  wire Co;
+    input [2:0]A;
+    input [2:0]B;
+    input Ci;
+
+    wire [3:0] S;
+    wire Co;
 
 La diferencia con el codigo anterior es que ahora no tenemos Output's tenemos Wire's, que vamos a usar para conectar las logicas del display.
 
