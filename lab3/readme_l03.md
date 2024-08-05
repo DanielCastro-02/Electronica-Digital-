@@ -4,41 +4,41 @@ Esta practica consistio en programar la FPGA para que al momento de controlar el
 
 Para ello, primero se realizo la parte logica, la cual consistio en con el codigo base 
 
-module BCDtoSSeg (BCD, SSeg, an);
+	module BCDtoSSeg (BCD, SSeg, an);
 
-  input [3:0] BCD;
-  output reg [0:6] SSeg;
-  output [3:0] an;
+  	input [3:0] BCD;
+  	output reg [0:6] SSeg;
+  	output [3:0] an;
   
-  assign an = 4'b1110;
+  	assign an = 4'b1110;
 
 
-always @ ( * ) begin
-  case (BCD)
+	always @ ( * ) begin
+  	case (BCD)
 
-                         // abcdefg
-         4'b0000: SSeg = 7'b0000001; // "0"  
-	 4'b0001: SSeg = 7'b1001111; // "1" 
-	 4'b0010: SSeg = 7'b0010010; // "2" 
-	 4'b0011: SSeg = 7'b0000110; // "3" 
-	 4'b0100: SSeg = 7'b1001100; // "4" 
-	 4'b0101: SSeg = 7'b0100100; // "5" 
-	 4'b0110: SSeg = 7'b0100000; // "6" 
-	 4'b0111: SSeg = 7'b0001111; // "7" 
-	 4'b1000: SSeg = 7'b0000000; // "8"  
-	 4'b1001: SSeg = 7'b0000100; // "9" 
-   4'ha: SSeg = 7'b0001000;  
-   4'hb: SSeg = 7'b1100000;
-   4'hc: SSeg = 7'b0110001;
-   4'hd: SSeg = 7'b1000010;
-   4'he: SSeg = 7'b0110000;
-   4'hf: SSeg = 7'b0111000;
-    default:
-    SSeg = 0;
-  endcase
-end
+        	                 // abcdefg
+         	4'b0000: SSeg = 7'b0000001; // "0"  
+	 	4'b0001: SSeg = 7'b1001111; // "1" 
+	 	4'b0010: SSeg = 7'b0010010; // "2" 
+	 	4'b0011: SSeg = 7'b0000110; // "3" 
+	 	4'b0100: SSeg = 7'b1001100; // "4" 
+	 	4'b0101: SSeg = 7'b0100100; // "5" 
+	 	4'b0110: SSeg = 7'b0100000; // "6" 
+	 	4'b0111: SSeg = 7'b0001111; // "7" 
+	 	4'b1000: SSeg = 7'b0000000; // "8"  
+	 	4'b1001: SSeg = 7'b0000100; // "9" 
+   	4'ha: SSeg = 7'b0001000;  
+   	4'hb: SSeg = 7'b1100000;
+   	4'hc: SSeg = 7'b0110001;
+   	4'hd: SSeg = 7'b1000010;
+   	4'he: SSeg = 7'b0110000;
+   	4'hf: SSeg = 7'b0111000;
+    	default:
+    		SSeg = 0;
+  		endcase
+	end
 
-endmodule
+	endmodule
 
 
 Este codigo lo que hace es cogificar el numero pasado por el dip, el cual es Binario y lo transforma en codifica en BCD, esto a raiz de que para que el 7 segmentos pueda mostrar algo algun numero o letra en pantalla, se debe configurar cada uno de los 7 LEDs para que de esta formar pueda presentar la informacion que queremos. 
@@ -64,41 +64,39 @@ Configurando los inputs y outputs de la FPGA en el PIN PLANNER, obtuvimos lo sig
 # Visualizaciòn de los numeros del 0 a 9 en el display 7 segmentos 
 Para este ejercicio la unica modificacion realizada fue, al codigo base, no programarlo para representar en un 7 segmentos numeros superiores al 9, quedando el codigo de la siguiente manera:
 
-module BCDtoSSeg (BCD, SSeg, an);
+	module BCDtoSSeg (BCD, SSeg, an);
 
-  input [3:0] BCD;
-  output reg [0:6] SSeg;
-  output [3:0] an;
+  	input [3:0] BCD;
+  	output reg [0:6] SSeg;
+  	output [3:0] an;
   
-  assign an = 4'b1110;
+  	assign an = 4'b1110;
 
 
-always @ ( * ) begin
-  case (BCD)
+	always @ ( * ) begin
+  	case (BCD)
 
-                         // abcdefg
-         4'b0000: SSeg = 7'b0000001; // "0"  
-	 4'b0001: SSeg = 7'b1001111; // "1" 
-	 4'b0010: SSeg = 7'b0010010; // "2" 
-	 4'b0011: SSeg = 7'b0000110; // "3" 
-	 4'b0100: SSeg = 7'b1001100; // "4" 
-	 4'b0101: SSeg = 7'b0100100; // "5" 
-	 4'b0110: SSeg = 7'b0100000; // "6" 
-	 4'b0111: SSeg = 7'b0001111; // "7" 
-	 4'b1000: SSeg = 7'b0000000; // "8"  
-	 4'b1001: SSeg = 7'b0000100; // "9" 
+         	                // abcdefg
+         	4'b0000: SSeg = 7'b0000001; // "0"  
+	 	4'b0001: SSeg = 7'b1001111; // "1" 
+	 	4'b0010: SSeg = 7'b0010010; // "2" 
+	 	4'b0011: SSeg = 7'b0000110; // "3" 
+	 	4'b0100: SSeg = 7'b1001100; // "4" 
+	 	4'b0101: SSeg = 7'b0100100; // "5" 
+	 	4'b0110: SSeg = 7'b0100000; // "6" 
+	 	4'b0111: SSeg = 7'b0001111; // "7" 
+	 	4'b1000: SSeg = 7'b0000000; // "8"  
+	 	4'b1001: SSeg = 7'b0000100; // "9" 
   
-    default:
-    SSeg = 0;
-  endcase
-end
+    	default:
+    		SSeg = 0;
+  	endcase
+	end
 
 endmodule
 
 Al cargarlo en la FPGA obtuvimos el siguiente resultado: 
-
-
-
+ 
 # Segunda Parte
 
 Ya con la visualizacion de los digitos en el display de 7 segmentos debemos realizar una suma de 2 numeros de 3 bits, estos deben ser introducidos mediante los switch de la FPGA y el resultado debe mostrarse tanto en su forma Decimal, como en su forma hexadecimal
