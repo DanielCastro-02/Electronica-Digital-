@@ -49,9 +49,9 @@ Vamos a instanciar un bloque Always() que va a ejecutar logica secuencial en la 
 
 Esto quiere decir que en cada ciclo de reloj, si se cumple la condicion del evento, va a ejecutar la logica que le introduzcamos, nuestro evento va a ser * entonces cada ciclo del reloj vamos a llamar la funcion:
 
-always @ ( * ) begin
+    always @ ( * ) begin
 
-end
+    end
 
 
 Dentro de la logica vamos a llamar un " Case() " con el que vamos a meter el resultado de la suma y lo vamos a convertir en su representacion del display de 7 segmentos:
@@ -82,5 +82,109 @@ Dentro de la logica vamos a llamar un " Case() " con el que vamos a meter el res
 
 Este valor lo metemos directamente a SSeg que es nuestra salida en el display de 7 segmentos y con esto podemos mostrar el resultado de la suma con hexadecimales.
 
-### Mostrar el resultado en Decimal (Dos displays con diferentes digitos)
+## Mostrar el resultado en Decimal
 
+Tenemos un problema con la forma en la que se construye la FPGA ya que a los display's les asignamos valores mediante un Multiplexor, entonces solo podemos mostrar un digito al tiempo, esto es un problema porque una suma de dos numeros de 3 bits nos puede resultar en un numero decimal de 2 digitos distintos, digamos que si vamos a mostrar un 7 no podemos mostrar otro numero que no sea un 7 en otro display, podriamos mostrar un
+
+    0 7 0 7
+
+Pero nunca un 
+
+    0 1 2 3
+
+Lo que vamos a hacer es que vamos a prender un numero al tiempo secuencialmente, y esto nos dara la ilusion de que estamos mostrando varios digitos al mismo tiempo
+
+    0 0 0 3 + 0 0 2 0 + 0 1 0 0 0 = 0 1 2 3
+
+### Mostrar el resultado en Decimal (Reloj)
+
+Siguiendo esta misma logica podriamos hacer un
+
+    an = 0 0 0 1
+    SSeg = (3 en binario)
+
+    an = 0 0 1 0 
+    SSeg = (2 en binario)
+
+    an = 0 1 0 0 
+    SSeg = (1 en binario)
+
+y esto seria correcto, pero nos enfrentamos a un problema fisico con los displays y es que la logica cambia tan rapido que no les da tiempo a prender, entonces va a parecer que ninguno prende porque ninguno tiene el tiempo de corriente suficiente como para prender.
+
+Lo que vamos a hacer es un delay para darle el tiempo que necesite el display para energizarse y cambiar al siguiente display entonces:
+
+    localparam divisor = 50000000;
+	reg [25:0] counter = 0;
+
+    always@(*) begin
+    if (counter < divisor) 
+        begin
+            counter <= counter + 1;
+        end
+    else
+        begin
+            counter <= 0;
+            clock <= ~clock; 
+        end
+    end
+
+En este fragmento de codigo lo que vamos a hacer es que cada vez que haya un ciclo de reloj vamos a aumentar un contador en 1, Cuando este contador llegue a 50000000, vamos a resetear el reloj y invertir una variable llamada "clock", escencialmente estamos haciendo que ejecute una accion cada 50000000 ciclos.
+
+Luego implementamos la misma logica pero ahora dependiendo si el clock se encuentra en 0, vamos a hacer la logica del primer Display, pero si ya pasaron 50000000 ciclos hacemos la logica del segundo display efectivamente haciendo la rotacion de los digitos.
+
+    always@(clock) begin
+        if(clock==1) begin
+            an <= 4'b1110;
+            case (S)
+
+                        //abcdegf      
+        4'b0000: SSeg = 7'b0000001; // "0"  
+        4'b0001: SSeg = 7'b1001111; // "1" 
+        4'b0010: SSeg = 7'b0010010; // "2" 
+        4'b0011: SSeg = 7'b0000110; // "3" 
+        4'b0100: SSeg = 7'b1001100; // "4" 
+        4'b0101: SSeg = 7'b0100100; // "5" 
+        4'b0110: SSeg = 7'b0100000; // "6" 
+        4'b0111: SSeg = 7'b0001111; // "7" 
+        4'b1000: SSeg = 7'b0000000; // "8"  
+        4'b1001: SSeg = 7'b0000100; // "9" 
+    4'ha: SSeg = 7'b0000001;  
+    4'hb: SSeg = 7'b1001111;
+    4'hc: SSeg = 7'b0010010;
+    4'hd: SSeg = 7'b0000110;
+    4'he: SSeg = 7'b1001100;
+    4'hf: SSeg = 7'b0100100;
+        default:
+        SSeg <= 0;
+    endcase
+            end
+        else begin
+            an <= 4'b1101;
+            case (S)
+
+                        //abcdegf      
+        4'b0000: SSeg = 7'b0000001; // "0"  
+        4'b0001: SSeg = 7'b0000001; // "0" 
+        4'b0010: SSeg = 7'b0000001; // "0" 
+        4'b0011: SSeg = 7'b0000001; // "0" 
+        4'b0100: SSeg = 7'b0000001; // "0" 
+        4'b0101: SSeg = 7'b0000001; // "0" 
+        4'b0110: SSeg = 7'b0000001; // "0" 
+        4'b0111: SSeg = 7'b0000001; // "0" 
+        4'b1000: SSeg = 7'b0000001; // "0"  
+        4'b1001: SSeg = 7'b0000001; // "0" 
+        4'ha: SSeg = 7'b1001111; // "1" 
+        4'hb: SSeg = 7'b1001111; // "1" 
+        4'hc: SSeg = 7'b1001111; // "1" 
+        4'hd: SSeg = 7'b1001111; // "1" 
+        4'he: SSeg = 7'b1001111; // "1" 
+        4'hf: SSeg = 7'b1001111; // "1" 
+        default:
+        SSeg <= 0;
+    endcase
+        end
+        
+    end
+
+
+    endmodule
