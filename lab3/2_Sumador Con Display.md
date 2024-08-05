@@ -188,3 +188,8 @@ Luego implementamos la misma logica pero ahora dependiendo si el clock se encuen
 
 
     endmodule
+
+
+    # Video mostrando el circuito
+
+    https://youtube.com/shorts/99IaE-0dVRM?si=fU-4SkiUcEEJ0cgY
