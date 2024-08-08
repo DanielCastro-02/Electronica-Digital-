@@ -1,0 +1,18 @@
+|Reloj
+clock => ~NO_FANOUT~
+reset => ~NO_FANOUT~
+dip_switch[0] => ~NO_FANOUT~
+dip_switch[1] => ~NO_FANOUT~
+sec[0] << <VCC>
+sec[1] << <GND>
+sec[2] << <GND>
+sec[3] << <GND>
+sec[4] << <GND>
+sec[5] << <GND>
+sec[6] << <GND>
+an[0] << <GND>
+an[1] << <VCC>
+an[2] << <VCC>
+an[3] << <VCC>
+
+
