@@ -44,7 +44,7 @@ module BCDtoSSeg (BCD, SSeg, an);
 
 Este codigo lo que hace es cogificar el numero pasado por el dip, el cual es Binario y lo transforma en codifica en BCD, esto a raiz de que para que el 7 segmentos pueda mostrar algo algun numero o letra en pantalla, se debe configurar cada uno de los 7 LEDs para que de esta formar pueda presentar la informacion que queremos. 
 
-Despues de ello, se realiza la asignacion de pines en la FPGA, teniendo en cuenta, que los pines de entrada del **Dip Switch** son los pines *P50, P59, P60 Y P61*, los cuales en nuestro codigo corresponde a la estrada BCD. 
+Despues de ello, se realiza la asignacion de pines en la FPGA, teniendo en cuenta solo los pines de entrada del Dip Switch son los pines P50, P59, P60 Y P61, los cuales en nuestro codigo corresponde a la estrada BCD. 
 
 La salida **AN** en la FPGA es aqueya que da la señal al displey 7 segmentos, el cual esta compuesto por cuatro 7 segmentos en configuracion de "Anodo comun" donde dependiendo de la posicion en la cual ponemos un 0 corresponde al 7 segmento que se activa para visualizar la informaciòn. En la FPGA de la salida AN esta encargado los pines *P128, P129, P132 y P133*
 
@@ -60,6 +60,12 @@ Por ultimo los LEDs de los 7 segmentos, por practicidad estan simbolizados por l
         H = P115
 
 Configurando los inputs y outputs de la FPGA en el PIN PLANNER, obtuvimos lo siguiente
+
+![alt text](Imagenes/Pinplanner.png)
+
+# Video numeros del 0 al F
+
+https://youtube.com/shorts/RA9LqyzGceg?si=XzFFDEh0xC6UdIQ-
 
 
 # Visualizaciòn de los numeros del 0 a 9 en el display 7 segmentos 
@@ -183,6 +189,10 @@ Dentro de la logica vamos a llamar un " Case() " con el que vamos a meter el res
     endmodule
 ````
 Este valor lo metemos directamente a SSeg que es nuestra salida en el display de 7 segmentos y con esto podemos mostrar el resultado de la suma con hexadecimales.
+
+# Video suma hexadecimal
+
+https://youtube.com/shorts/8rhXOPpK6jg?si=u8wf_bpY_eOrxoqY
 
 ## Mostrar el resultado en Decimal
 
