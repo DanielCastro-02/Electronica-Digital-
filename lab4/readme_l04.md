@@ -17,25 +17,27 @@ parameter DIVISOR = 50000;
 	end
 ````
 	
-// incremento del contador x milisegundo
+// cada tick  pulsa a 20ns, por lo que cuando llegue a 50000 tick se deben tener 1ms. en este tick se va a contar un 1 en el temporizador
 ````
 	always @(posedge pulso_ms or posedge reset) begin
         if (reset) begin
-            count <= 0;
-        end else if (count == 9999) begin
             count <= 0;
         end else begin
             count <= count + 1;
         end
     end
 ````	 
-// Dividir cada digito del contador 
+// Con una variable ya en milisegundos podemos partir las otras unidades de tiempo con divisiones
 ````
-    assign digit1 = count % 10;
-    assign digit2 = (count / 10) % 10;
-    assign digit3 = (count / 100) % 10;
-    assign digit4 = (count / 1000) % 10;
+    assign digit1 = count ;
+    assign digit2 = (count / 10);
+    assign digit3 = (count / 100);
+    assign digit4 = (count / 1000);
+
 ````
+
+
+
 Luego de ello se procede a presentar estos datos en el display, esto teniendo en cuenta que se debe considerar la configurarion binaria del anodo de los 7 segmentos y que para activar mas de un display se debe realizar una conmutacion entre los display de tal manera que se enciendan y apagen los displays y presenten los digitos en pantalla, pero teniendo en cuenta que dicha conmutacion se debe realizar de tal manera que no sea perseptible a la vista humana. El resultado de este laboratorio, con todo lo mencionado anteriormente podemos observarlo en el siguiente video:   
 
-
+https://youtube.com/shorts/OsE8N3-pxBs
