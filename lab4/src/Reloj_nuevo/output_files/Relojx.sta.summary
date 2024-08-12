@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'counter[10]'
+Slack : -29.804
+TNS   : -431.346
+
+Type  : Slow 1200mV 85C Model Setup 'clock'
+Slack : -3.470
+TNS   : -40.134
+
+Type  : Slow 1200mV 85C Model Setup 'pulso_ms'
+Slack : -1.774
+TNS   : -16.619
+
+Type  : Slow 1200mV 85C Model Hold 'counter[10]'
+Slack : 0.434
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'pulso_ms'
+Slack : 0.465
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.761
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -28.279
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'counter[10]'
+Slack : -1.487
+TNS   : -26.766
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pulso_ms'
+Slack : -1.487
+TNS   : -20.818
+
+Type  : Slow 1200mV 0C Model Setup 'counter[10]'
+Slack : -27.303
+TNS   : -393.905
+
+Type  : Slow 1200mV 0C Model Setup 'clock'
+Slack : -3.137
+TNS   : -35.753
+
+Type  : Slow 1200mV 0C Model Setup 'pulso_ms'
+Slack : -1.466
+TNS   : -13.603
+
+Type  : Slow 1200mV 0C Model Hold 'counter[10]'
+Slack : 0.384
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'pulso_ms'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.705
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -28.279
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'counter[10]'
+Slack : -1.487
+TNS   : -27.403
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pulso_ms'
+Slack : -1.487
+TNS   : -20.818
+
+Type  : Fast 1200mV 0C Model Setup 'counter[10]'
+Slack : -12.132
+TNS   : -174.737
+
+Type  : Fast 1200mV 0C Model Setup 'clock'
+Slack : -1.216
+TNS   : -11.134
+
+Type  : Fast 1200mV 0C Model Setup 'pulso_ms'
+Slack : -0.221
+TNS   : -0.743
+
+Type  : Fast 1200mV 0C Model Hold 'counter[10]'
+Slack : 0.179
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'pulso_ms'
+Slack : 0.194
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock'
+Slack : 0.304
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -21.105
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'counter[10]'
+Slack : -1.000
+TNS   : -18.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pulso_ms'
+Slack : -1.000
+TNS   : -14.000
+
+------------------------------------------------------------
