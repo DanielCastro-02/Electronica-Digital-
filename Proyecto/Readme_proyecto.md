@@ -1,8 +1,8 @@
-#Proyecto prototipo de control y seguridad hogar intelignete
+# Proyecto prototipo de control y seguridad hogar intelignete
 
 Para el desarrollo de este proyecto, lo primero que se tuvo que desarrollar era la conxion entre el modulo bluetooth y la FPGA, estas dos para poder "comunicarse" entre si deben estar manejando la misma velocidad de transmision de datos (baudios), ya que si esta no es igual no se puede lograr una conexion. Para este caso se utilizo un modulo bluetooht HC-05, el cual tabaja a unos 9600 baudios, tambien sabemos que la freceuncia que maneja la FPGA es de 50 MHz, gracias a estos dos datos podemos realizar un divisor de frecuencia el cual nos va ayudar a saber a que velocidada debemos trasmitir los datos de la FPGA, nos da como resultado que 50MHz/9600 baudios = 5208 baudios, este valor es demasiado grande, por lo que decidimos hacerlo 16 veces mas rapido, con el objetivo de acceder a intervalos de timepo mas pequeños, por lo tanto nuestro divisor de frecuencia cambia a la forma de 50MHz/(9600 baudios * 16) = 325 baudios. 
 
-//Transmision de datos.
+// Transmision de datos.
 ````
 
 module UART_BaudRate_generator(
