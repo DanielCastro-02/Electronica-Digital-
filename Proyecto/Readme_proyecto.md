@@ -30,5 +30,5 @@ always @(posedge Clk or negedge Rst_n)
 assign Tick = (baudRateReg == BaudRate);
 endmodule
 ````
-\\ Baudrate es la velocidad a la cual deseamos que vaya los datos de la FPGA, la cual corresponde a los 325 baudios. La variable Rst_n funciona como un reset el cual reinicia la variable baudRateReg a 16'b1, cuando esto no ocurre a este variable se le suma un contador hasta que esta variable sea igual a nuestro Baudrate. 
+// Baudrate es la velocidad a la cual deseamos que vaya los datos de la FPGA, la cual corresponde a los 325 baudios. La variable Rst_n funciona como un reset el cual reinicia la variable baudRateReg a 16'b1, cuando esto no ocurre a este variable se le suma un contador hasta que esta variable sea igual a nuestro Baudrate. 
 
