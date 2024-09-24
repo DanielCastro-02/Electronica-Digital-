@@ -32,3 +32,14 @@ endmodule
 ````
 // Baudrate es la velocidad a la cual deseamos que vaya los datos de la FPGA, la cual corresponde a los 325 baudios. La variable Rst_n funciona como un reset el cual reinicia la variable baudRateReg a 16'b1, cuando esto no ocurre a este variable se le suma un contador hasta que esta variable sea igual a nuestro Baudrate. 
 
+Para la implementacion del control de bombillo con el cual prende y apaga, y el detector de precensia nos vamos al apartado de Rx  donde se encuentra el siguiente fragmento,
+
+````
+Beeper = !Sensor;
+Light = RxData[2] || clockLight || lightSwitch;
+motor1 = !RxData[0] && !finalcarrera1 && !finalcarrera2;
+motor2 = !RxData[1] && !finalcarrera1 && !finalcarrera2;
+````
+// De esta manera cunado el sensor se active, el sistema va utilizar la alarma de la FPGA la cual esta descrita como Bell y es el pin 141, y sonara siempre y cuando algo este enfrente suyo. El encargado de prender y apagar el bombillo es el comando lightSwitch, este va poder apagar y prender el bombillo siempre y cuando el panel tenga un numero menor que 6. El motor 1 y 2, hacen referencia al momento en que la persiana tiene que terminar de subir y bajar respectivamnete.
+
+
