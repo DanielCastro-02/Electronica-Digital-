@@ -1,4 +1,6 @@
-# Proyecto prototipo de control y seguridad hogar intelignete
+# Proyecto prototipo de control y seguridad hogar inteligente
+
+## Implementación en Verilog
 
 Para el desarrollo de este proyecto, primero se tuvo que desarrollar la conxion entre el modulo Bluetooth y la FPGA, esto con el fin de lograr una comunicacion entre una aplicacion de telefono que controla ciertas salidas del sistema, para poder "comunicarse" entre si se debe tener en consideracion que la velocidad de transmision de datos (baudios) entre la FPGA y el modulo Bluetooth debe ser el la misma, ya que si esta no es igual no se puede lograr una conexion. Para este caso se utilizo un modulo bluetooht HC-05, el cual tabaja a unos ***9600 baudios***, ademas sabemos que el *Clock* de la FPGA trabaja a ***50 MHz***; gracias a estos datos se realiza un divisor de frecuencia, el cual, sirve para saber a que velocidada debemos trasmitir los datos de la FPGA, para este caso da como resultado que ***50MHz/9600 baudios = 5208 baudios***, valor el cual es demasiado grande, por lo que se toma la desicion de hacerlo 16 veces mas rapido, con el objetivo de acceder a intervalos de timepo mas pequeños, de esta manera nuestro divisor de frecuencia cambia a la forma de ***50MHz/(9600 baudios * 16) = 325 baudios***. 
 
@@ -32,7 +34,7 @@ endmodule
 ````
 *Baudrate* es la velocidad a la cual se desea que vaya los datos de la FPGA, que en este caso corresponde a los ***325 baudios*** calculados anteriormente; la variable *Rst_n* funciona como un reset el cual reinicia la variable *baudRateReg* a *16'b1*, cuando esto no ocurre, a este variable se le suma un contador hasta lograr que esta variable sea igual a nuestro Baudrate. 
 
-## UART_Rx
+### UART_Rx
 
 El modulo de *rx*, es el segmento con el cual configuramos la recepcion de datos desde el modulo bluetooth;
 
@@ -149,7 +151,7 @@ motor2 = !RxData[1] && !finalcarrera1 && !finalcarrera2;
 ````
 De esta manera cuando el sensor se active, el sistema va utilizar la alarma de la FPGA la cual esta descrita como Bell, y sonara siempre y cuando el sensor identifique algo frente a el. El encargado de prender y apagar el bombillo es el comando lightSwitch, este va poder apagar y prender el bombillo siempre y cuando el panel tenga un numero menor que 6 (tiempo que simula la hora configurada por el usuario para programar las luces de su casa). El motor 1 y 2, hacen referencia al sentido de giro del motor de la persiana, el cual tambien depende de la lectura de los finanes de carrera.
 
-# Clock
+### Clock
 
 Utilizando como base el clock de la practica del ***laboratorio #4***, se modifica ligeramente para que este pudiera acoplarse y cumplir los requisitos de este proyecto, el clock en este caso va funcionar de la siguiente manera:
 
@@ -227,7 +229,7 @@ always @(*) begin
 endmodule
 
 ````
-# Simulacion
+## Simulacion
 Al simular el sistema para comprobar el correcto funcionamiento del mismo se obtuvo:
 ![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Simulacion.jpg)
 En esta simulacion se puede evidenciar:
@@ -237,8 +239,9 @@ En esta simulacion se puede evidenciar:
 * El correcto funcionamiento del prendido y apagado del bombillo, *LuzSwitch*, a traves del swicht.
 * La correlacion del bombillo *Luz* con el *RxData[2]*.
   
-# Montaje en Fisico 
-## Lista de Materiales 
+## Montaje en Fisico 
+
+### Lista de Materiales 
 * **FPGA:** Cyclone IV 
 * **Motor:** DC de 5V
 * **Puente H:** L298N
@@ -250,7 +253,7 @@ En esta simulacion se puede evidenciar:
 * **Módulo Bluetooth:** HC-05
 * **Resistencia:** 360 Ohm 
 
-## Conexiones:
+### Conexiones:
 
 La FPGA Cyclone IV será el cerebro de este sistema y para ello se debe interconectar con los demás componentes de la siguiente manera:
 
@@ -272,9 +275,9 @@ Nota: se puede comprobrar
 Al configurar el PinPlanner, este queda de la siguiente manera:
 ![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Pinplanner.jpg)
 
-## Consideraciones adicionales:
+### Consideraciones adicionales:
 
 * **Alimentación:** El sensor de distancia y el puente H requieren una alimentación externa de 5V. Es fundamental realizar un acople de tierras entre esta fuente y la FPGA para garantizar un funcionamiento estable.
 
-## Montaje en fisico:
+### Implementación fisica:
 ![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Montajefisico.png)
