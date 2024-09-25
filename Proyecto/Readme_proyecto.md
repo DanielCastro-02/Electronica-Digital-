@@ -153,4 +153,25 @@ motor2 = !RxData[1] && !finalcarrera1 && !finalcarrera2;
 ````
 // De esta manera cunado el sensor se active, el sistema va utilizar la alarma de la FPGA la cual esta descrita como Bell y es el pin 141, y sonara siempre y cuando algo este enfrente suyo. El encargado de prender y apagar el bombillo es el comando lightSwitch, este va poder apagar y prender el bombillo siempre y cuando el panel tenga un numero menor que 6. El motor 1 y 2, hacen referencia al momento en que la persiana tiene que terminar de subir y bajar respectivamnete.
 
+# Clock
+
+Utilizando el clock de la practica de laboratorio #4, se medofico ligeramente para que estu pudiera acoplarse y cumplr los requisitos de este proyecto, el clock en este caso va funcionar de la siuigente manera:
+
+// Divisor de frecuencia
+
+````
+parameter DIVISOR = 50000; 
+
+	always @(posedge clock or posedge reset) begin
+        if (reset) begin
+            counter <= 0;
+            pulso_ms <= 0;
+        end else if (counter == DIVISOR) begin
+            counter <= 0;
+            pulso_ms <= ~pulso_ms;
+        end else begin
+            counter <= counter + 1;
+        end
+	end
+````
 
