@@ -229,7 +229,7 @@ endmodule
 ````
 # Simulacion
 Al simular el sistema para comprobar el correcto funcionamiento del mismo se obtuvo:
-![alt text]([https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Pinplanner.jpg](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Simulacion.jpg))
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Simulacion.jpg)
 En esta simulacion se puede evidenciar:
 * las señales recibidas por el modulo Bluetooth *RxData* y su correlacion con los motores donde vemos que *motor1* depende de *RxData[0]* y *motor2* depende de *RxData[1]* 
 * La correlacion entre la señal leida por el *Sensor* y la *Alarma*, donde se evidencia que la lectura del sensor genera que la alarma se prenda o apague.
