@@ -231,3 +231,38 @@ always @(*) begin
 endmodule
 
 ````
+# Montaje en Fisico 
+## Lista de Materiales 
+* **FPGA:** Cyclone IV 
+* **Motor:** DC de 5V
+* **Puente H:** L298N
+* **Fuente de alimentación:** 5V
+* **Finales de carrera:** 2 unidades
+* **Sensor de distancia:** SHARP 2Y0A21
+* **Buzzer:** 1 unidad (Buzzer de la FPGA)
+* **LED:** 1 unidad
+* **Módulo Bluetooth:** HC-05
+* **Resistencias:** 360 Ohm 
+
+## Conexiones:
+
+La FPGA Cyclone IV será el cerebro de este sistema, interconectándose con los demás componentes de la siguiente manera:
+
+* **Buzzer:** Conectado al PIN 141 (pin propio del Buzzer de la FPGA) para generar sonidos de alarma.
+* **Reloj:** Conectado al PIN 23 (Clock de la FPGA) para sincronizar el sistema.
+* **LED:** Conectado al PIN 32 con una resistencia de 360 Ohm para limitar la corriente.
+* **Reset:** Conectado al PIN 67 para reiniciar el sistema si es necesario.
+* **Bluetooth:**
+    * Recepción (Rx): Conectado al PIN 38.
+    * Transmisión (Tx): Conectado al PIN 43.
+* **Sensor de distancia:** Conectado al PIN 46 para detectar objetos cercanos.
+* **Finales de carrera:**
+    * Final carrera 1: Conectado al PIN 59.
+    * Final carrera 2: Conectado al PIN 65.
+* **Motor:** El motor esta conectado al puente H y es controlado mediante los pines IN1 y IN2 del puente H que a su vez esta señal de control del motor están conectadas a los PIN 64 y PIN 58.
+* **Switch de luces:** Conectado al PIN 60 para controlar manualmente el encendido/apagado de la luz.
+* **Reloj secundario:** Para mostrar la "hora" a traves del primer display del 7 segmentos del la FPGA, realizando uso de los pines 119, 120, 121, 124, 125, 126, y 127.
+
+## Consideraciones adicionales:
+
+* **Alimentación:** El sensor de distancia y el puente H requieren una alimentación externa de 5V. Es fundamental realizar un acople de tierras entre esta fuente y la FPGA para garantizar un funcionamiento estable.
