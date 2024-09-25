@@ -139,7 +139,7 @@ Finalmente se ingresan los datos en otros registros *RxData*, para finalmente se
     end
 
             
-Para la implementacion del control de bombillo, con el cual prende y apaga el led, y el detector de proximidad, se ingresa al apartado de Rx donde se encuentra el siguiente fragmento:
+Para la implementacion del control de bombillo, con el cual prende y apaga el led, y el detector de proximidad, se ingresa al apartado de Rx, en el cual se encuentra el siguiente fragmento de codigo:
 
 ````
 Beeper = !Sensor;
