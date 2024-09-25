@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Sep 25 04:49:23 2024
+[*]
+[dumpfile] "D:\Quartus2\Simul\test.vcd"
+[dumpfile_mtime] "Wed Sep 25 04:45:26 2024"
+[dumpfile_size] 16299
+[savefile] "D:\Quartus2\Simul\simul.gtkw"
+[timestart] 0
+[size] 1844 600
+[pos] -1 -1
+*-6.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] SImulaciones_tb.
+[sst_width] 197
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@800022
+SImulaciones_tb.SImulaciones.RxData[3:0]
+@28
+(0)SImulaciones_tb.SImulaciones.RxData[3:0]
+(1)SImulaciones_tb.SImulaciones.RxData[3:0]
+(2)SImulaciones_tb.SImulaciones.RxData[3:0]
+(3)SImulaciones_tb.SImulaciones.RxData[3:0]
+SImulaciones_tb.SImulaciones.Sensor
+SImulaciones_tb.SImulaciones.clockLight
+SImulaciones_tb.SImulaciones.LuzSwitch
+SImulaciones_tb.SImulaciones.FinalCarrera2
+SImulaciones_tb.SImulaciones.FinalCarrera1
+SImulaciones_tb.SImulaciones.Luz
+SImulaciones_tb.SImulaciones.Motor1
+SImulaciones_tb.SImulaciones.Motor2
+@29
+SImulaciones_tb.SImulaciones.Alarma
+@1001200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
