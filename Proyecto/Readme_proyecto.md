@@ -174,4 +174,60 @@ parameter DIVISOR = 50000;
         end
 	end
 ````
+// Se da la condicion de que si el contador de segundos llega a 6, el bombillo se mantiene prendido hasta que es este contador se reinicie, en el momento que se reinicie el bombillo vuelve a su estado naturla de estar apagado
 
+````
+	always @(posedge pulso_ms or posedge reset) begin
+        if (reset) begin
+            count <= 0;
+        end
+		  else if(count==14'b10111011100000)begin
+				count <= 0;
+				clockLight <= 0;
+		  end
+		  else if(count==14'b01011101110000)begin
+				clockLight <= 1;
+				count <= count + 1;
+		  end
+		  else begin
+            count <= count + 1;
+        end
+    end
+````
+// Se divide el count en 1000 para que este sea capaz de mostrar el tiempo en segundos con la variable digito4
+````
+ assign digito4 = (count / 1000) ; 
+````
+// Se hace uso del dsiplay de 7 segmentos, por poder contar el teimpo con mayor facilidad
+````
+ always @(posedge counter[10]) begin
+        case (tiempo[4:0])
+                         // abcdefg
+         4'b0000: sec = 7'b1000000; // "0"  
+			4'b0001: sec = 7'b1111001; // "1" 
+			4'b0010: sec = 7'b0100100; // "2" 
+			4'b0011: sec = 7'b0110000; // "3" 
+			4'b0100: sec = 7'b0011001; // "4" 
+			4'b0101: sec = 7'b0010010; // "5" 
+			4'b0110: sec = 7'b0000010; // "6" 
+			4'b0111: sec = 7'b1111000; // "7" 
+			4'b1000: sec = 7'b0000000; // "8"  
+			4'b1001: sec = 7'b0010000; // "9" 
+			4'b1010: sec = 7'b0001000; // "10" 
+			4'b1011: sec = 7'b0000011; // "11"
+			4'b1100: sec = 7'b1000110; // "12" 	
+           default: sec = 7'b1111110;
+        endcase		  
+    end
+````
+// Se le asigna al tiempo la variable digito4, para usar el display de 7 segmentos y asi contar el tiempo
+````
+always @(*) begin
+
+		tiempo = digito4; // Segundos
+		
+    end
+	
+endmodule
+
+````
