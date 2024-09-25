@@ -1,6 +1,6 @@
 # Proyecto prototipo de control y seguridad hogar intelignete
 
-Para el desarrollo de este proyecto, primero se tuvo que desarrollar la conxion entre el modulo Bluetooth y la FPGA, esto con el fin de lograr una comunicacion entre una aplicacion de telefono que controla ciertas salidas del sistema, para poder "comunicarse" entre si se debe tener en consideracion que la velocidad de transmision de datos (baudios) entre la FPGA y el modulo Bluetooth debe ser el la misma, ya que si esta no es igual no se puede lograr una conexion. Para este caso se utilizo un modulo bluetooht HC-05, el cual tabaja a unos 9600 baudios, ademas sabemos que el *Clock* de la FPGA trabaja a 50 MHz; gracias a estos datos se realiza un divisor de frecuencia, el cual, sirve para saber a que velocidada debemos trasmitir los datos de la FPGA, para este caso da como resultado que 50MHz/9600 baudios = 5208 baudios, valor el cual es demasiado grande, por lo que se toma la desicion de hacerlo 16 veces mas rapido, con el objetivo de acceder a intervalos de timepo mas pequeños, de esta manera nuestro divisor de frecuencia cambia a la forma de 50MHz/(9600 baudios * 16) = 325 baudios. 
+Para el desarrollo de este proyecto, primero se tuvo que desarrollar la conxion entre el modulo Bluetooth y la FPGA, esto con el fin de lograr una comunicacion entre una aplicacion de telefono que controla ciertas salidas del sistema, para poder "comunicarse" entre si se debe tener en consideracion que la velocidad de transmision de datos (baudios) entre la FPGA y el modulo Bluetooth debe ser el la misma, ya que si esta no es igual no se puede lograr una conexion. Para este caso se utilizo un modulo bluetooht HC-05, el cual tabaja a unos ***9600 baudios***, ademas sabemos que el *Clock* de la FPGA trabaja a ***50 MHz***; gracias a estos datos se realiza un divisor de frecuencia, el cual, sirve para saber a que velocidada debemos trasmitir los datos de la FPGA, para este caso da como resultado que ***50MHz/9600 baudios = 5208 baudios***, valor el cual es demasiado grande, por lo que se toma la desicion de hacerlo 16 veces mas rapido, con el objetivo de acceder a intervalos de timepo mas pequeños, de esta manera nuestro divisor de frecuencia cambia a la forma de ***50MHz/(9600 baudios * 16) = 325 baudios***. 
 
 Transmision de datos:
 ````
@@ -30,7 +30,7 @@ always @(posedge Clk or negedge Rst_n)
 assign Tick = (baudRateReg == BaudRate);
 endmodule
 ````
-*Baudrate* es la velocidad a la cual se desea que vaya los datos de la FPGA, que en este caso corresponde a los 325 baudios calculados anteriormente; la variable *Rst_n* funciona como un reset el cual reinicia la variable *baudRateReg* a *16'b1*, cuando esto no ocurre, a este variable se le suma un contador hasta lograr que esta variable sea igual a nuestro Baudrate. 
+*Baudrate* es la velocidad a la cual se desea que vaya los datos de la FPGA, que en este caso corresponde a los ***325 baudios*** calculados anteriormente; la variable *Rst_n* funciona como un reset el cual reinicia la variable *baudRateReg* a *16'b1*, cuando esto no ocurre, a este variable se le suma un contador hasta lograr que esta variable sea igual a nuestro Baudrate. 
 
 ## UART_Rx
 
@@ -147,11 +147,11 @@ Light = RxData[2] || clockLight || lightSwitch;
 motor1 = !RxData[0] && !finalcarrera1 && !finalcarrera2;
 motor2 = !RxData[1] && !finalcarrera1 && !finalcarrera2;
 ````
-De esta manera cuando el sensor se active, el sistema va utilizar la alarma de la FPGA la cual esta descrita como Bell, y sonara siempre y cuando el sensor identifique algo frente a el. El encargado de prender y apagar el bombillo es el comando lightSwitch, este va poder apagar y prender el bombillo siempre y cuando el panel tenga un numero menor que 6. El motor 1 y 2, hacen referencia al sentido de giro del motor de la persiana, el cual tambien depende de la lectura de los finanes de carrera.
+De esta manera cuando el sensor se active, el sistema va utilizar la alarma de la FPGA la cual esta descrita como Bell, y sonara siempre y cuando el sensor identifique algo frente a el. El encargado de prender y apagar el bombillo es el comando lightSwitch, este va poder apagar y prender el bombillo siempre y cuando el panel tenga un numero menor que 6 (tiempo que simula la hora configurada por el usuario para programar las luces de su casa). El motor 1 y 2, hacen referencia al sentido de giro del motor de la persiana, el cual tambien depende de la lectura de los finanes de carrera.
 
 # Clock
 
-Utilizando como base el clock de la practica del **laboratorio #4**, se modifica ligeramente para que este pudiera acoplarse y cumplir los requisitos de este proyecto, el clock en este caso va funcionar de la siguiente manera:
+Utilizando como base el clock de la practica del ***laboratorio #4***, se modifica ligeramente para que este pudiera acoplarse y cumplir los requisitos de este proyecto, el clock en este caso va funcionar de la siguiente manera:
 
 Divisor de frecuencia
 
@@ -190,7 +190,7 @@ Se da la condicion de que si el contador de segundos llega a 6, el bombillo se m
         end
     end
 ````
-Se divide el count en 1000, con el fin de mostrar el tiempo en segundos con la variable *digito4*
+Se divide el *count* en 1000, con el fin de mostrar el tiempo en segundos con la variable *digito4*
 ````
  assign digito4 = (count / 1000) ; 
 ````
@@ -227,6 +227,16 @@ always @(*) begin
 endmodule
 
 ````
+# Simulacion
+Al simular el sistema para comprobar el correcto funcionamiento del mismo se obtuvo:
+![alt text]([https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Pinplanner.jpg](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Simulacion.jpg))
+En esta simulacion se puede evidenciar:
+* las señales recibidas por el modulo Bluetooth *RxData* y su correlacion con los motores donde vemos que *motor1* depende de *RxData[0]* y *motor2* depende de *RxData[1]* 
+* La correlacion entre la señal leida por el *Sensor* y la *Alarma*, donde se evidencia que la lectura del sensor genera que la alarma se prenda o apague.
+* la señal *ClockÑight* simula los tiempos programados para el encendido o apagado del bombillo.
+* El correcto funcionamiento del prendido y apagado del bombillo, *LuzSwitch*, a traves del swicht.
+* La correlacion del bombillo *Luz* con el *RxData[2]*.
+  
 # Montaje en Fisico 
 ## Lista de Materiales 
 * **FPGA:** Cyclone IV 
@@ -238,7 +248,7 @@ endmodule
 * **Buzzer:** 1 unidad (Buzzer de la FPGA)
 * **LED:** 1 unidad
 * **Módulo Bluetooth:** HC-05
-* **Resistencias:** 360 Ohm 
+* **Resistencia:** 360 Ohm 
 
 ## Conexiones:
 
@@ -255,7 +265,7 @@ Nota: se puede comprobrar
 * **Finales de carrera:**
     * Final carrera 1: Conectado al PIN 59.
     * Final carrera 2: Conectado al PIN 65.
-* **Motor:** El motor esta conectado al puente H y es controlado mediante los pines IN1 y IN2 del puente H que a su vez esta señal de control del motor están conectadas a los PIN 64 y PIN 58.
+* **Motor:** El motor esta conectado al puente H y es controlado mediante los pines IN1 y IN2 del puente H, los cuales están conectadas a los PIN 64 y PIN 58 de la FPGA.
 * **Switch de luces:** Conectado al PIN 60 para controlar manualmente el encendido/apagado de la luz.
 * **Reloj secundario:** Para mostrar la "hora" a traves del primer display del 7 segmentos del la FPGA, realizando uso de los pines 119, 120, 121, 124, 125, 126, y 127.
 
