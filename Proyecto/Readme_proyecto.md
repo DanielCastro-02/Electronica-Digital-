@@ -280,4 +280,5 @@ Al configurar el PinPlanner, este queda de la siguiente manera:
 * **Alimentación:** El sensor de distancia y el puente H requieren una alimentación externa de 5V. Es fundamental realizar un acople de tierras entre esta fuente y la FPGA para garantizar un funcionamiento estable.
 
 ### Implementación fisica:
-![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Montajefisico.png)
+En el siguiente video se puede observar la implementación del circuito
+[![Video implementacion en Cyclone IV](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Montajefisico.png)](https://youtu.be/x3SsoC8LdlU)
