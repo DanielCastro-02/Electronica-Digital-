@@ -264,11 +264,11 @@ La FPGA Cyclone IV será el cerebro de este sistema, interconectándose con los 
 * **Reloj secundario:** Para mostrar la "hora" a traves del primer display del 7 segmentos del la FPGA, realizando uso de los pines 119, 120, 121, 124, 125, 126, y 127.
 
 Al configurar el PinPlanner, este queda de la siguiente manera:
-![](Proyecto/img/Pinplanner.jpg)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Pinplanner.jpg)
 
 ## Consideraciones adicionales:
 
 * **Alimentación:** El sensor de distancia y el puente H requieren una alimentación externa de 5V. Es fundamental realizar un acople de tierras entre esta fuente y la FPGA para garantizar un funcionamiento estable.
 
 ## Montaje en fisico:
-![](Proyecto/img/Montajefisico.png)
+![alt text](https://github.com/DanielCastro-02/Electronica-Digital-G2-E1/blob/main/Proyecto/img/Montajefisico.png)
