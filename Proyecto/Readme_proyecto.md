@@ -1,8 +1,8 @@
 # Proyecto prototipo de control y seguridad hogar intelignete
 
-Para el desarrollo de este proyecto, lo primero que se tuvo que desarrollar era la conxion entre el modulo bluetooth y la FPGA, estas dos para poder "comunicarse" entre si deben estar manejando la misma velocidad de transmision de datos (baudios), ya que si esta no es igual no se puede lograr una conexion. Para este caso se utilizo un modulo bluetooht HC-05, el cual tabaja a unos 9600 baudios, tambien sabemos que la freceuncia que maneja la FPGA es de 50 MHz, gracias a estos dos datos podemos realizar un divisor de frecuencia el cual nos va ayudar a saber a que velocidada debemos trasmitir los datos de la FPGA, nos da como resultado que 50MHz/9600 baudios = 5208 baudios, este valor es demasiado grande, por lo que decidimos hacerlo 16 veces mas rapido, con el objetivo de acceder a intervalos de timepo mas pequeños, por lo tanto nuestro divisor de frecuencia cambia a la forma de 50MHz/(9600 baudios * 16) = 325 baudios. 
+Para el desarrollo de este proyecto, primero se tuvo que desarrollar la conxion entre el modulo Bluetooth y la FPGA, esto con el fin de lograr una comunicacion entre una aplicacion de telefono que controla ciertas salidas del sistema, para poder "comunicarse" entre si se debe tener en consideracion que la velocidad de transmision de datos (baudios) entre la FPGA y el modulo Bluetooth debe ser el la misma, ya que si esta no es igual no se puede lograr una conexion. Para este caso se utilizo un modulo bluetooht HC-05, el cual tabaja a unos 9600 baudios, ademas sabemos que el *Clock* de la FPGA trabaja a 50 MHz; gracias a estos datos se realiza un divisor de frecuencia, el cual, sirve para saber a que velocidada debemos trasmitir los datos de la FPGA, para este caso da como resultado que 50MHz/9600 baudios = 5208 baudios, valor el cual es demasiado grande, por lo que se toma la desicion de hacerlo 16 veces mas rapido, con el objetivo de acceder a intervalos de timepo mas pequeños, de esta manera nuestro divisor de frecuencia cambia a la forma de 50MHz/(9600 baudios * 16) = 325 baudios. 
 
-// Transmision de datos.
+// Transmision de datos:
 ````
 
 module UART_BaudRate_generator(
@@ -13,7 +13,7 @@ module UART_BaudRate_generator(
     );
 
 ````
-// Se declaran los puertos de salida y entrada del modulo
+// Se declaran los puertos de salida y entrada del modulo:
 
 ````
 input           Clk                 ; // Clock input
@@ -30,13 +30,13 @@ always @(posedge Clk or negedge Rst_n)
 assign Tick = (baudRateReg == BaudRate);
 endmodule
 ````
-// Baudrate es la velocidad a la cual deseamos que vaya los datos de la FPGA, la cual corresponde a los 325 baudios. La variable Rst_n funciona como un reset el cual reinicia la variable baudRateReg a 16'b1, cuando esto no ocurre a este variable se le suma un contador hasta que esta variable sea igual a nuestro Baudrate. 
+// *Baudrate* es la velocidad a la cual se desea que vaya los datos de la FPGA, que en este caso corresponde a los 325 baudios calculados anteriormente; la variable *Rst_n* funciona como un reset el cual reinicia la variable *baudRateReg* a *16'b1*, cuando esto no ocurre, a este variable se le suma un contador hasta lograr que esta variable sea igual a nuestro Baudrate. 
 
 ## UART_Rx
 
-El modulo de rx es la parte de codigo donde vamos a recibir los datos desde nuestro modulo bluetooth;
+El modulo de *rx*, es el segmento con el cual configuramos la recepcion de datos desde el modulo bluetooth;
 
-Primero creamos una maquina de estado que verifica una señal de reset, en el caso de que este activada, ponemos el estado del circuito en el modo necesario (Almacenado en State), en caso de que este en bajo dejamos el circuito en espera.
+Primero se crea una maquina de estado, la cual verifica una señal de reset y en el caso de que este activada, se pone el estado del circuito en el modo necesario (Almacenado en *State*), en caso de que este en bajo se deja el circuito en espera.
 
 
     always @ (posedge Clk or negedge Rst_n)
@@ -45,9 +45,9 @@ Primero creamos una maquina de estado que verifica una señal de reset, en el ca
     else 		State <= Next;
     end
 
-Ahora hacemos distintas logicas para comprobar en que estado deberia estar nuestro circuito
+Ahora se realiza distintas logicas para comprobar el estado en que deberia estar el circuito
 
-Si esta a la espera pero RxEnable esta activo, entonces ponemos el circuito en modo de lectura, si ya estamos en lectura pero el circuit ya termino (RxDone) ponemos otra vez el circuito a la espera de otra entrada
+Si esta a la espera pero *RxEnable* esta activo, entonces se pone el circuito en modo de lectura y si ya se esta en lectura pero el circuito ya termino, *RxDone*, se pone otra vez el circuito a la espera de otra entrada:
 
     always @ (State or Rx or RxEn or RxDone)
     begin
@@ -60,7 +60,7 @@ Si esta a la espera pero RxEnable esta activo, entonces ponemos el circuito en m
         endcase
     end
 
-Dependiendo del estado en el que nos encontremos vamos a habilitar un bit llamado "Read_Enable" que vamos a utilizar para saber cuando nuestro circuito esta listo para empezar las lecturas
+Dependiendo del estado en el que se encontre vamos a habilitar un bit llamado *Read_Enable* el cual se utiliza para saber cuando el circuito esta listo para empezar las lecturas:
 
     always @ (State or RxDone)
     begin
@@ -75,7 +75,7 @@ Dependiendo del estado en el que nos encontremos vamos a habilitar un bit llamad
         endcase
     end
 
-Vamos a realizar la lectura
+Se realiza la lectura:
 
     always @ (posedge Tick)
 
@@ -112,7 +112,7 @@ Vamos a realizar la lectura
         end
         end
 
-Finalmente metemos los datos en otros registros (RxData), para finalmente usarlos en lo que necesitemos
+Finalmente se ingresan los datos en otros registros *RxData*, para finalmente ser usados en la aplicacion requerida.
 
     always @ (posedge Clk)
     begin
@@ -139,11 +139,7 @@ Finalmente metemos los datos en otros registros (RxData), para finalmente usarlo
     end
 
             
-
-    
-
-
-Para la implementacion del control de bombillo con el cual prende y apaga, y el detector de precensia nos vamos al apartado de Rx  donde se encuentra el siguiente fragmento,
+Para la implementacion del control de bombillo, con el cual prende y apaga el led, y el detector de proximidad, se ingresa al apartado de Rx donde se encuentra el siguiente fragmento:
 
 ````
 Beeper = !Sensor;
@@ -151,11 +147,11 @@ Light = RxData[2] || clockLight || lightSwitch;
 motor1 = !RxData[0] && !finalcarrera1 && !finalcarrera2;
 motor2 = !RxData[1] && !finalcarrera1 && !finalcarrera2;
 ````
-// De esta manera cunado el sensor se active, el sistema va utilizar la alarma de la FPGA la cual esta descrita como Bell y es el pin 141, y sonara siempre y cuando algo este enfrente suyo. El encargado de prender y apagar el bombillo es el comando lightSwitch, este va poder apagar y prender el bombillo siempre y cuando el panel tenga un numero menor que 6. El motor 1 y 2, hacen referencia al momento en que la persiana tiene que terminar de subir y bajar respectivamnete.
+// De esta manera cuando el sensor se active, el sistema va utilizar la alarma de la FPGA la cual esta descrita como Bell, y sonara siempre y cuando el sensor identifique algo frente a el. El encargado de prender y apagar el bombillo es el comando lightSwitch, este va poder apagar y prender el bombillo siempre y cuando el panel tenga un numero menor que 6. El motor 1 y 2, hacen referencia al sentido de giro del motor de la persiana, el cual tambien depende de la lectura de los finanes de carrera.
 
 # Clock
 
-Utilizando el clock de la practica de laboratorio #4, se medofico ligeramente para que estu pudiera acoplarse y cumplr los requisitos de este proyecto, el clock en este caso va funcionar de la siuigente manera:
+Utilizando como base el clock de la practica del **laboratorio #4**, se modifica ligeramente para que este pudiera acoplarse y cumplir los requisitos de este proyecto, el clock en este caso va funcionar de la siguiente manera:
 
 // Divisor de frecuencia
 
@@ -174,7 +170,7 @@ parameter DIVISOR = 50000;
         end
 	end
 ````
-// Se da la condicion de que si el contador de segundos llega a 6, el bombillo se mantiene prendido hasta que es este contador se reinicie, en el momento que se reinicie el bombillo vuelve a su estado naturla de estar apagado
+// Se da la condicion de que si el contador de segundos llega a 6, el bombillo se mantiene prendido hasta que es este contador se reinicie, en el momento que se reinicie, el bombillo vuelve a su estado natural, es decir estar apagado.
 
 ````
 	always @(posedge pulso_ms or posedge reset) begin
@@ -194,11 +190,11 @@ parameter DIVISOR = 50000;
         end
     end
 ````
-// Se divide el count en 1000 para que este sea capaz de mostrar el tiempo en segundos con la variable digito4
+// Se divide el count en 1000, con el fin de mostrar el tiempo en segundos con la variable *digito4*
 ````
  assign digito4 = (count / 1000) ; 
 ````
-// Se hace uso del dsiplay de 7 segmentos, por poder contar el teimpo con mayor facilidad
+// Se hace uso del dsiplay de 7 segmentos, para observar y contar el tiempo con mayor facilidad
 ````
  always @(posedge counter[10]) begin
         case (tiempo[4:0])
@@ -220,7 +216,7 @@ parameter DIVISOR = 50000;
         endcase		  
     end
 ````
-// Se le asigna al tiempo la variable digito4, para usar el display de 7 segmentos y asi contar el tiempo
+// Se le asigna al tiempo la variable *digito4*, para usar el display de 7 segmentos y asi contar el tiempo
 ````
 always @(*) begin
 
@@ -246,7 +242,7 @@ endmodule
 
 ## Conexiones:
 
-La FPGA Cyclone IV será el cerebro de este sistema, interconectándose con los demás componentes de la siguiente manera:
+La FPGA Cyclone IV será el cerebro de este sistema y para ello se debe interconectar con los demás componentes de la siguiente manera:
 
 * **Buzzer:** Conectado al PIN 141 (pin propio del Buzzer de la FPGA) para generar sonidos de alarma.
 * **Reloj:** Conectado al PIN 23 (Clock de la FPGA) para sincronizar el sistema.
@@ -254,7 +250,7 @@ La FPGA Cyclone IV será el cerebro de este sistema, interconectándose con los 
 * **Reset:** Conectado al PIN 67 para reiniciar el sistema si es necesario.
 * **Bluetooth:**
     * Recepción (Rx): Conectado al PIN 38.
-    * Transmisión (Tx): Conectado al PIN 43.
+Nota: se puede comprobrar  
 * **Sensor de distancia:** Conectado al PIN 46 para detectar objetos cercanos.
 * **Finales de carrera:**
     * Final carrera 1: Conectado al PIN 59.
