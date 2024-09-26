@@ -76,17 +76,7 @@ UART_rs232_rx I_RS232RX(
 		.motor2(motor2),
     );
 
-//Make connections between Tx module and TOP inputs and outputs and the other modules
-UART_rs232_tx I_RS232TX(
-   	.Clk(Clk)            	,
-    	.Rst_n(Rst_n)         	,
-    	.TxEn(TxEn)           	,
-    	.TxData(TxData)      	,
-   	.TxDone(TxDone)      	,
-   	.Tx(Tx)               	,
-   	.Tick(tick)           	,
-   	.NBits(NBits)
-    );
+
 
 //Make connections between tick generator module and TOP inputs and outputs and the other modules
 UART_BaudRate_generator I_BAUDGEN(
